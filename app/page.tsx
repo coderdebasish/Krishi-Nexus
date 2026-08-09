@@ -89,7 +89,7 @@ export default function Dashboard() {
       const [f, w, a] = await Promise.all([getFarm(), getWeather(), getAdvisory()]);
       setFarm(f); setWeather(w); setAdvisory(a);
     } catch {
-      setError('Backend connection offline. Make sure Krishi-Nexus backend is running on port 8000.');
+      setError('Waking up backend cloud server... Render free tier takes a few seconds on first load.');
     } finally {
       setLoading(false);
     }

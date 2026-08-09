@@ -3,7 +3,7 @@
  * All backend communication goes through here.
  */
 
-const BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
+const BACKEND = (process.env.NEXT_PUBLIC_BACKEND_URL || 'https://krishi-nexus-backend.onrender.com').replace(/\/+$/, '');
 
 async function apiFetch(path: string, options?: RequestInit) {
   try {
