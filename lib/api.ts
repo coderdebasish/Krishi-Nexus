@@ -3,7 +3,13 @@
  * All backend communication goes through here.
  */
 
-const BACKEND = (process.env.NEXT_PUBLIC_BACKEND_URL || 'https://krishi-nexus-backend.onrender.com').replace(/\/+$/, '');
+let BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://krishi-nexus-backend.onrender.com';
+if (typeof window !== 'undefined' && (BACKEND.includes('localhost') || BACKEND.includes('127.0.0.1'))) {
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    BACKEND = 'https://krishi-nexus-backend.onrender.com';
+  }
+}
+BACKEND = BACKEND.replace(/\/+$/, '');
 
 async function apiFetch(path: string, options?: RequestInit) {
   try {
