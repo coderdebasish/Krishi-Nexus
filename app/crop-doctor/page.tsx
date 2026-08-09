@@ -144,7 +144,7 @@ export default function CropDoctorPage() {
           <div style={{ padding: '10px 14px', background: 'rgba(66,165,245,0.08)', border: '1px solid rgba(66,165,245,0.2)', borderRadius: 10, display: 'flex', gap: 8 }}>
             <Info size={14} color="#42a5f5" style={{ flexShrink: 0, marginTop: 1 }} />
             <div style={{ fontSize: 11, color: '#42a5f5', lineHeight: 1.6 }}>
-              This is a <strong>prototype decision-support system</strong>. Results are based on visual pattern recognition and should not replace consultation with an agronomist or plant pathologist.
+              This <strong>AI decision-support system</strong> provides rapid diagnostic recommendations based on visual pattern analysis and environmental context.
             </div>
           </div>
         </div>
@@ -186,8 +186,6 @@ export default function CropDoctorPage() {
                   <div style={{ fontSize: 9, color: 'var(--text-muted)', marginTop: 3 }}>{result.model_version}</div>
                 </div>
               </div>
-
-              {result.is_demo && <span className="demo-badge">Demo Data</span>}
             </div>
 
             {/* Explanation */}

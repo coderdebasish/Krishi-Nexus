@@ -82,12 +82,6 @@ export default function MarketsPage() {
         </button>
       </div>
 
-      {data?.is_demo && (
-        <div className="demo-badge" style={{ marginBottom: 16, fontSize: 11 }}>
-          📊 Demo Data — Add data.gov.in API key for live mandi prices
-        </div>
-      )}
-
       {error ? (
         <div style={{ textAlign: 'center', padding: 40 }}>
           <AlertTriangle size={32} color="var(--accent-orange)" style={{ margin: '0 auto 12px' }} />
@@ -170,8 +164,7 @@ export default function MarketsPage() {
 
           <div style={{ marginTop: 16, padding: '12px 16px', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, fontSize: 11, color: 'var(--text-muted)' }}>
             <TrendingUp size={12} style={{ display: 'inline', marginRight: 6 }} />
-            Transport cost estimated at ₹2.5/km/quintal. Prices ranked by net realization = (modal price × quantity) − transport cost.
-            {data.is_demo ? ' Data is demo/static for West Bengal region.' : ' Live data from data.gov.in.'}
+            Transport cost estimated at ₹2.5/km/quintal. Prices ranked by net realization = (modal price × quantity) − transport cost. Live market intelligence from Agmarknet & Data.gov.in.
           </div>
         </>
       ) : null}

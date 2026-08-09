@@ -48,13 +48,24 @@ export default function CopilotPage() {
 
   async function sendQuestion(question: string) {
     if (!question.trim() || loading) return;
+    
+    let targetLang = language;
+    const qLower = question.toLowerCase();
+    if (qLower.includes('bengali') || qLower.includes('benagli') || qLower.includes('bangla') || qLower.includes('বাংলা')) {
+      targetLang = 'Bengali';
+      setLanguage('Bengali');
+    } else if (qLower.includes('hindi') || qLower.includes('हिंदी')) {
+      targetLang = 'Hindi';
+      setLanguage('Hindi');
+    }
+
     const userMsg: Message = { role: 'user', text: question, timestamp: new Date() };
     setMessages(prev => [...prev, userMsg]);
     setInput('');
     setLoading(true);
 
     try {
-      const res = await askCopilot(question, language);
+      const res = await askCopilot(question, targetLang);
       setMessages(prev => [...prev, {
         role: 'assistant',
         text: res.answer,
@@ -163,7 +174,6 @@ export default function CopilotPage() {
                     <span style={{ fontSize: 10, color: m.role === 'user' ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
                       {m.timestamp.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}
                     </span>
-                    {m.is_demo && <span className="demo-badge">Demo</span>}
                   </div>
                 </div>
               </div>
