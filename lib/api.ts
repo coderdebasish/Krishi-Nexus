@@ -85,3 +85,17 @@ export async function sendSMS(phone_number: string) {
 export async function getHealth() {
   return apiFetch('/api/health');
 }
+
+export const API = {
+  getFarm,
+  updateFarm,
+  saveFarm: updateFarm,
+  getWeather,
+  analyzeDisease,
+  getLatestDisease,
+  getAdvisory,
+  getMarkets,
+  askCopilot,
+  sendSMS,
+  getHealth,
+};

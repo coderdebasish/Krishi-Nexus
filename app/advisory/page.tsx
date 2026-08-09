@@ -150,7 +150,7 @@ export default function AdvisoryPage() {
           <div style={{ padding: '12px 14px', background: `${irrColor}10`, border: `1px solid ${irrColor}30`, borderRadius: 10 }}>
             <div style={{ fontWeight: 600, fontSize: 13, color: 'var(--text-primary)', marginBottom: 6 }}>{String(irr?.reason || '')}</div>
             <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Recommended Timing: {String(irr?.recommended_timing || '')}</div>
-            {irr?.estimated_water_liters && (
+            {Boolean(irr?.estimated_water_liters) && (
               <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>
                 Estimated Water Need: ~{Number(irr.estimated_water_liters).toLocaleString('en-IN')} litres (prototype estimate)
               </div>
