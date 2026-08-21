@@ -79,8 +79,9 @@ export default function CropDoctorPage() {
             <div style={{ marginBottom: 14 }}>
               <label>Select Crop</label>
               <select className="select-field" value={crop} onChange={e => setCrop(e.target.value)}>
-                {['Tomato', 'Rice', 'Wheat', 'Potato', 'Maize'].map(c => <option key={c}>{c}</option>)}
+                {['Tomato', 'Rice (Paddy)', 'Potato', 'Wheat', 'Maize (Corn)', 'Cotton', 'Apple', 'Grape', 'Sugarcane', 'Chilli / Pepper'].map(c => <option key={c}>{c}</option>)}
               </select>
+
             </div>
 
             {/* Upload zone */}
